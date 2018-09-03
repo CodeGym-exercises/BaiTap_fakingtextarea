@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fanking text area on typing</title>
+</head>
+<body>
+	<div id="container" style="margin:0 auto;width:400px;height: 400px;">
+		<h1>Typing anything slowly</h1>
+		<textarea name="txt" id="input" cols="30" rows="10"></textarea>
+	</div>
+	<script type="text/javascript">
+		let input = document.getElementById("input");
+		let arr = ["T","ô","i"," ","l","à"," ","m","ộ","t"," ","đ","ứ","a",
+					" ", "n","g","ố","c"," "];
+		
+		input.onkeydown = typeTextArea();
+		function typeTextArea(){
+			let n = "";
+			for(let i = 0; i<input.value.length;i++){
+				n+=arr[i];
+				if(i==arr.length){
+					n="";
+					input.value = " ";
+				}
+			}
+			input.value = n;
+			setTimeout("typeTextArea()",1);
+		}
+
+	</script>
+</body>
+</html>
